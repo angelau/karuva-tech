@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Specifically allow Facebook's scraper
+User-agent: facebookexternalhit
+Allow: /
