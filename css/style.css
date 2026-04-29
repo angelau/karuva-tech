@@ -1,0 +1,1272 @@
+/* --- 1. GLOBAL STYLES --- */
+:root {
+    --primary: #2d5a27;      /* NGO Deep Green */
+    --primary-light: #4a8c3f;
+    --dark: #1a1a1a;
+    --light: #f9f9f9;
+    --white: #ffffff;
+    --darkblue: #010123;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* --- 2. NAVBAR (Logo & Name) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    min-height: 90px;
+    background: var(--darkblue);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.brand-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;          
+    align-items: center; 
+    flex-wrap: nowrap;  
+    
+}
+
+.nav-links li {
+    white-space: nowrap;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1rem;  
+    transition: var(--transition);
+}
+
+.nav-links li a:hover, .nav-links li a.active {
+    color: var(--primary);
+}
+
+/* --- 3. HERO SECTION --- */
+.hero {
+    height: 80vh;
+    /* This background uses your Cloudinary link from the HTML hero section */
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                url('https://res.cloudinary.com/doq4g8g2x/image/upload/f_auto,q_auto/v1777044515/Gallery/pilex-centre.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    opacity: 0.9;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    
+}
+
+.btn {
+    padding: 14px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--dark);
+}
+
+/* --- HERO / INTRO SECTION --- */
+.home-intro {
+    /* Ensure the section can grow with the text */
+    min-height: 80vh; 
+    height: auto; 
+    
+    /* Standard padding to give the text breathing room */
+    padding: 100px 20px; 
+    
+    /* Center the content vertically and horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* Ensure it pushes the next section down */
+    position: relative; 
+    overflow: visible; 
+}
+
+.intro-text {
+    max-width: 800px;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    /* 1. Make the parent container flexible */
+    .home-intro {
+        height: auto;           /* Removes any fixed height like 100vh */
+        min-height: 100vh;      /* Ensures it still fills the screen if content is short */
+        padding: 120px 20px 60px; /* Adds space at the top for navbar and bottom for breathing room */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 2. Fix the content width */
+    .hero-content {
+        width: 100%;
+        text-align: center;     /* Centers the text for a better mobile look */
+        padding: 0;
+        margin: 0;
+    }
+
+    /* 3. Scale down the heading so it doesn't push everything down */
+    .hero-content h1 {
+        font-size: 2rem;        /* Smaller font for mobile */
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    /* 4. Fix the buttons */
+    .hero-btns {
+        display: flex;
+        flex-direction: column; /* Stacks 'Our Mission' and 'See Our Work' */
+        gap: 15px;
+        width: 100%;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .hero-btns .btn {
+        width: 100%;            /* Buttons become full-width for easy tapping */
+        max-width: 280px;       /* Keeps buttons from looking too wide */
+        padding: 5px;
+    }
+}
+
+/* --- 4. SECTIONS & GRIDS --- */
+.container {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 15px auto 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--light);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 25px;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+
+/* Special Grid for 2 Directors */
+.directors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 450px)); /* Limits size */
+    justify-content: center; /* Centers the two cards */
+    gap: 40px;
+}
+.card-info .bio{
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--white);
+    line-height: 1.6;
+}
+.card-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--white);
+}
+.card-info {
+     background: var(--darkblue);
+}
+.staff-item {
+    background: var(--darkblue);
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.staff-item:hover {
+    transform: translateY(-5px);
+}
+
+.staff-photo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px; /* Centers the circle and adds space below */
+    overflow: hidden;
+    border-radius: 50%; /* Makes it a circle */
+    border: 3px solid var(--primary); /* A nice ring around the photo */
+}
+
+.staff-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the face isn't stretched */
+}
+
+.staff-item h4 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: var(--white);
+}
+
+.staff-item p {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+.staff-item .bio{
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--white);
+    line-height: 1.6;
+}
+/* --- 5. FOOTER --- */
+.main-footer {
+    background: rgb(1, 1, 35);
+    color: var(--white);
+    padding-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-brand h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.footer-links h4 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-links ul li a:hover {
+    color: var(--white);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    background: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: darkblue;
+    border-top: 1px solid #333;
+}
+
+/* --- 6. MOBILE MENU --- */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark);
+    margin: 5px;
+    transition: var(--transition);
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* We'll handle the toggle with JS later */
+    }
+    .burger {
+        display: block;
+    }
+    .hero-btns {
+        flex-direction: column;
+    }
+}
+
+
+
+/* --- GALLERY SECTION REFINEMENT --- */
+.gallery-section {
+    padding: 60px 0;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Space between the project cards */
+}
+
+.gallery-card {
+    display: flex;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    border: 1px solid #eee;
+    /* This ensures the card doesn't get infinitely tall */
+    max-height: 500px; 
+}
+
+/* Image Side */
+.gallery-img {
+    flex: 1.2; /* Takes up a bit more than half the card */
+    overflow: hidden;
+}
+
+.gallery-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This is key: it crops the photo to fit the space without stretching */
+    display: block;
+}
+
+/* Content Side */
+.gallery-content {
+    flex: 0.8; /* Takes up slightly less than half */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+}
+
+.gallery-content .category {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+}
+
+.gallery-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    color: var(--dark);
+}
+
+.gallery-content .date {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.gallery-content .description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+    /* Limits text so it doesn't push the card too long */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- RESPONSIVE FIXES --- */
+
+/* Alternating images: Left-Right-Left (Desktop only) */
+@media screen and (min-width: 901px) {
+    .gallery-card:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
+
+/* Mobile View: Stack them vertically */
+@media screen and (max-width: 900px) {
+    .gallery-card {
+        flex-direction: column;
+        max-height: none; /* Let the card grow as needed on mobile */
+    }
+
+    .gallery-img {
+        height: 250px; /* Fixed height for photos on mobile */
+        width: 100%;
+    }
+    
+    .gallery-content {
+        padding: 30px 20px;
+    }
+}
+
+/* Blog Page Layout */
+.blog-section {
+    padding: 80px 0;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.blog-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.blog-image {
+    height: 200px;
+    width: 100%;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.blog-tag {
+    background: var(--light);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: fit-content;
+    margin-bottom: 15px;
+}
+
+.blog-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.blog-meta {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.blog-excerpt {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.blog-info .read-more {
+    margin-top: auto; /* Pushes the button to the bottom of the card */
+    font-size: 0.9rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Single Post Styling */
+.single-post {
+    max-width: 800px; /* Narrower for better readability */
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.post-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+
+.post-meta {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.post-featured-image {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.post-featured-image img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.post-body p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #444;
+}
+
+.post-body h2 {
+    margin: 40px 0 20px;
+    color: var(--dark);
+}
+
+/* Blockquote for community voices */
+blockquote {
+    border-left: 5px solid var(--primary);
+    padding: 20px 30px;
+    background: var(--light);
+    margin: 40px 0;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+blockquote span {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* --- FOOTER SOCIALS --- */
+.footer-socials h4 {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: var(--white);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px; /* Space between icons */
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1); /* Subtle circle background */
+    color: var(--white);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 1.2rem;
+}
+
+/* Hover Effects with Brand Colors */
+.social-icons a:hover {
+    transform: translateY(-5px);
+    color: var(--white);
+}
+
+.social-icons a[aria-label="Facebook"]:hover { background: #1877F2; }
+.social-icons a[aria-label="Instagram"]:hover { background: #E4405F; }
+.social-icons a[aria-label="LinkedIn"]:hover { background: #0077B5; }
+.social-icons a[aria-label="Twitter"]:hover { background: #000000; }
+
+.footer-email {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.footer-email a {
+    color: #ccc;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-email a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+/* Hover color for the email icon circle */
+.social-icons a[aria-label="Email"]:hover {
+    background: var(--primary); /* Uses your NGO green on hover */
+}
+
+/* --- FOOTER NEWSLETTER --- */
+.footer-newsletter {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-newsletter h4 {
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.footer-newsletter p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0; /* Joins the input and button */
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px 0 0 5px; /* Rounded only on the left */
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.newsletter-btn {
+    background: var(--primary);
+    color: var(--white);
+    padding: 0 20px;
+    border: none;
+    border-radius: 0 5px 5px 0; /* Rounded only on the right */
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.newsletter-btn:hover {
+    background: var(--primary-light);
+}
+
+/* Responsive adjustment for small screens */
+@media screen and (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+/* --- RESEARCH SECTION --- */
+.research-section {
+    background: #f4f7f6; /* A slightly different light gray to separate it from the blog */
+    padding: 80px 0;
+}
+
+.research-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.report-highlight-card {
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    border-left: 6px solid var(--primary); /* Identifies it as a primary resource */
+    gap: 40px;
+}
+
+.report-icon {
+    font-size: 5rem;
+    color: #e74c3c; /* Classic PDF Red */
+}
+
+.report-tag {
+    display: inline-block;
+    background: rgba(45, 90, 39, 0.1);
+    color: var(--primary);
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.report-details h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+
+.report-details p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Action Buttons */
+.report-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-download {
+    background: var(--primary);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.btn-download:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.btn-view {
+    border: 2px solid #ccc;
+    color: #555;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-view:hover {
+    background: #eee;
+}
+
+/* Responsive for Research Card */
+@media screen and (max-width: 768px) {
+    .report-highlight-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+    .report-actions {
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 768px) {
+    /* ... (your existing mobile styles) ... */
+
+    .report-details p {
+        margin-bottom: 30px; /* Increased space below the description */
+    }
+    .report-details {
+        display: flex;
+        flex-direction: column; /* Stack buttons so they fit on small screens */
+        gap: 15px;
+        align-items: center;
+    }
+
+    .report-actions {
+        display: flex;
+        flex-direction: column; 
+        gap: 15px;             
+        margin-top: 20px;       
+        width: 100%;
+    }
+
+    .btn-download, .btn-view {
+        display: inline-block !important; /* Force it to show */
+        width: 80%; /* Make it easy to tap with a thumb */
+        padding: 15px;
+        text-align: center;
+        /* display: block;
+        width: 100%;           
+        padding: 15px;          */
+    }
+}
+
+/* --- CONTACT PAGE STYLES --- */
+.contact-section {
+    padding: 80px 0;
+}
+
+.contact-wrapper {
+    display: flex;
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.contact-info {
+    flex: 1;
+    background: var(--primary); /* Using your brand green */
+    color: var(--white);
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-info h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.info-links {
+    margin: 40px 0;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.info-item i {
+    font-size: 1.2rem;
+}
+
+.contact-form-container {
+    flex: 1.5;
+    padding: 60px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    outline: none;
+}
+
+.btn-submit {
+    background: var(--primary);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: var(--transition);
+}
+
+.btn-submit:hover {
+    background: var(--primary-light);
+}
+
+/* --- MOBILE VIEW --- */
+@media screen and (max-width: 900px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+    
+    .contact-info, .contact-form-container {
+        padding: 40px 20px;
+    }
+}
+
+/* --- IMPACT STATS --- */
+.stats-section {
+    background: var(--primary);
+    color: var(--white);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* --- HOME BLOG PREVIEW --- */
+.home-blog-preview {
+    padding: 80px 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.view-all {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.home-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.mini-blog-card {
+    display: flex;
+    gap: 20px;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 15px;
+    transition: var(--transition);
+}
+
+.mini-blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.mini-img {
+    flex: 0.4;
+    height: 120px;
+}
+
+.mini-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.mini-content {
+    flex: 0.6;
+}
+
+.mini-content .tag {
+    font-size: 0.7rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.mini-content h3 {
+    font-size: 1.1rem;
+    margin: 5px 0;
+}
+
+.mini-content p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Mobile Fix for Mini Cards */
+@media screen and (max-width: 500px) {
+    .mini-blog-card {
+        flex-direction: column;
+    }
+    .mini-img {
+        height: 180px;
+        width: 100%;
+    }
+}
+
+
+/* This class is added by JavaScript when you click the burger */
+.nav-active {
+    transform: translateX(0%); /* Pulls it back onto the screen */
+}
+
+/* Fix for the burger visibility */
+.burger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001; /* Keeps burger above the menu */
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--white); /* Or whatever color your lines are */
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+@media screen and (max-width: 768px) {
+    .burger {
+        display: block; /* Shows the burger only on small screens */
+    }
+
+}
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        top: 8vh;
+        height: 92vh;
+        width: 60%; /* Or whatever width you want */
+        background-color: var(--darkblue);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        /* The "Hidden" State */
+        transform: translateX(100%); 
+        transition: transform 0.5s ease-in;
+        z-index: 1000;
+    }
+
+    /* The "Visible" State */
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+}
+
+.newsletter-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.newsletter-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-container h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #080227;
+}
+.newsletter-container p {
+    font-size: 1rem;
+    color: #030436;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.newsletter-form input {
+    flex: 2;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.newsletter-form button {
+    flex: 1;
+    padding: 15px;
+    background-color: var(--darkblue); /* Use your NGO's brand color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Mobile View for the Form */
+@media screen and (max-width: 600px) {
+    .newsletter-form {
+        flex-direction: column; /* Stacks input and button on mobile */
+    }
+    
+    .newsletter-container h2 {
+        font-size: 1.6rem;
+    }
+}
+
+
+#backToTop {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--darkblue); /* Your NGO brand color */
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 30%;
+    font-size: 18px;
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#backToTop:hover {
+    transform: scale(1.1); /* Slight grow effect */
+    background-color: #333; /* Darker shade on hover */
+}
+html {
+    scroll-behavior: smooth;
+}
