@@ -10,18 +10,19 @@
     <meta property="og:url" content="https://pilexcentre.org/">
     <meta property="og:title" content="Pilex Centre | The People's Advocates">
     <meta property="og:description" content="Defending human rights and promoting environmental justice across Rivers State and Nigeria.">
-    <meta property="og:image" content="https://res.cloudinary.com/doq4g8g2x/image/upload/w_1200,h_630,c_fill/v1777044541/Gallery/ngo-name-logo.png"> 
+    <meta property="og:image" content="https://res.cloudinary.com/doq4g8g2x/image/upload/w_1200,h_630,c_fill/v1777044541/Gallery/ngo-name-logo.png">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://pilexcentre.org/">
     <meta property="twitter:title" content="Pilex Centre | The People's Advocates">
     <meta property="twitter:description" content="Defending human rights and promoting environmental justice across Rivers State and Nigeria.">
-    <meta name="description" content="Official website of Pilex Centre For Civic Education Initiative. We are dedicated to sustainable community development, education, and health outreach. Learn about our mission and impact.">
 
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="stylesheet" href="css/style.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/home.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -48,53 +49,148 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Making an Impact That Lasts.</h1>
-            <p>We work at the grassroots level to drive change and foster growth.</p>
-            <div class="hero-btns">
-                <a href="about.html" class="btn btn-primary">Our Mission</a>
-                <a href="gallery.html" class="btn btn-outline">See Our Work</a>
+    <main class="hm">
+
+        <!-- ===================== HERO ===================== -->
+        <header class="hm-hero">
+            <!-- To use a photo, replace the line below with:
+                 <div class="hm-hero__bg" style="--hero-img: url('YOUR_CLOUDINARY_LINK');" role="presentation"></div>
+                 Tip: use a link like .../image/upload/f_auto,q_auto,w_1920/... -->
+            <div class="hm-hero__bg" role="presentation"></div>
+
+            <div class="container">
+                <div class="hm-hero__inner">
+                    <h1 aria-label="The people's advocates for justice in the Niger Delta.">
+                        <span class="w" aria-hidden="true"><span style="--i:0">The</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:1">people's</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:2">advocates</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:3">for</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:4">justice</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:5">in</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:6">the</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:7">Niger</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:8">Delta.</span></span>
+                    </h1>
+                    <p class="hm-hero__lede">We are a public interest law centre defending human rights and the environment through strategic litigation, advocacy and civic education.</p>
+                    <div class="hm-hero__actions">
+                        <a href="about.html" class="hm-btn hm-btn--solid">Our Mission <i class="fas fa-arrow-right"></i></a>
+                        <a href="gallery.html" class="hm-btn hm-btn--ghost">See Our Work</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    
-    <section class="home-intro container">
-        <div class="intro-text">
-            <h2>Welcome to Pilex Centre For Civic Education Initiative</h2>
-            <p>Pilex Centre for Civic Education Initiative is a public interest law Centre focused on Democracy and Good Governance,Human and Environmental rights defence through strategic litigation and advocacy. With Six full-time staff, Pilex Centre has an out-sized impact through its partnerships with leading public interest lawyers and legal advocacy organizations in Africa, America and the U.K.</p>
-        </div>
-    </section>
-    <section class="stats-section">
-    <div class="container stats-grid">
-        <div class="stat-item">
-            <h3>3+</h3>
-            <p>Communities</p>
-        </div>
-        <div class="stat-item">
-            <h3>1st Ed.</h3>
-            <p>School Grants Issued</p>
-        </div>
-        <div class="stat-item">
-            <h3>2025</h3>
-            <p>Research Published</p>
-        </div>
-        <div class="stat-item">
-            <h3>100%</h3>
-            <p>Community Driven</p>
-        </div>
-    </div>
-</section>
+        <!-- ===================== STATS ===================== -->
+        <section class="hm-stats">
+            <div class="container">
+                <div class="hm-stats__grid hm-rv">
+                    <div class="hm-stat">
+                        <strong class="hm-count" data-to="3" data-suffix="+">3+</strong>
+                        <span>Communities</span>
+                    </div>
+                    <div class="hm-stat">
+                        <strong>1st Ed.</strong>
+                        <span>School Grants Issued</span>
+                    </div>
+                    <div class="hm-stat">
+                        <strong>2025</strong>
+                        <span>Research Published</span>
+                    </div>
+                    <div class="hm-stat">
+                        <strong class="hm-count" data-to="100" data-suffix="%">100%</strong>
+                        <span>Community Driven</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- ===================== INTRO ===================== -->
+        <section class="hm-intro">
+            <div class="container hm-intro__grid">
+                <h2 class="hm-rv">Welcome to Pilex Centre For Civic Education Initiative</h2>
+                <p class="hm-rv" style="--i:1">Pilex Centre for Civic Education Initiative is a public interest law Centre focused on Democracy and Good Governance, Human and Environmental rights defence through strategic litigation and advocacy. With six full-time staff, Pilex Centre has an out-sized impact through its partnerships with leading public interest lawyers and legal advocacy organizations in Africa, America and the U.K.</p>
+            </div>
+        </section>
+
+        <!-- ===================== FOCUS AREAS ===================== -->
+        <section class="hm-focus">
+            <div class="container">
+                <div class="hm-head hm-rv">
+                    <h2>What we work on</h2>
+                    <p>Three areas where we use the law, evidence and public advocacy to protect people.</p>
+                </div>
+
+                <div class="hm-focus__grid">
+                    <article class="hm-card hm-rv" style="--i:0">
+                        <div class="hm-card__icon"><i class="fas fa-landmark" aria-hidden="true"></i></div>
+                        <h3>Democracy and good governance</h3>
+                        <p>We push for accountable government and informed citizens, so people can take part in the decisions that affect their lives.</p>
+                    </article>
+
+                    <article class="hm-card hm-rv" style="--i:1">
+                        <div class="hm-card__icon"><i class="fas fa-scale-balanced" aria-hidden="true"></i></div>
+                        <h3>Human rights</h3>
+                        <p>We stand with people whose rights have been denied or ignored, through legal representation and public advocacy.</p>
+                    </article>
+
+                    <article class="hm-card hm-rv" style="--i:2">
+                        <div class="hm-card__icon"><i class="fas fa-leaf" aria-hidden="true"></i></div>
+                        <h3>Environment and climate change</h3>
+                        <p>We challenge pollution, oil spills and land damage, backed by scientific evidence and field research.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PARTNERS ===================== -->
+        <section class="hm-partners">
+            <div class="container">
+                <p class="hm-rv">We work with leading public interest lawyers and legal advocacy organizations in Africa, America and the U.K.</p>
+            </div>
+        </section>
+
+        <!-- ===================== TEAM TEASER ===================== -->
+        <section class="hm-team">
+            <div class="container hm-team__row">
+                <div class="hm-faces hm-rv">
+                    <img src="https://res.cloudinary.com/doq4g8g2x/image/upload/f_auto,q_auto,w_200,h_200,c_fill,g_face/v1777044235/Board/Courage-Nsirimovu.jpg" alt="Courage Nsirimovu" width="92" height="92" loading="lazy">
+                    <img src="https://res.cloudinary.com/doq4g8g2x/image/upload/f_auto,q_auto,w_200,h_200,c_fill,g_face/v1791834077/Board/Favour%20Anichebe.jpg" alt="Favour Anichebe" width="92" height="92" loading="lazy">
+                    <img src="https://res.cloudinary.com/doq4g8g2x/image/upload/f_auto,q_auto,w_200,h_200,c_fill,g_face/v1791834078/Board/Mercy%20Ndubisi.jpg" alt="Mercy Ndubisi" width="92" height="92" loading="lazy">
+                    <img src="https://res.cloudinary.com/doq4g8g2x/image/upload/f_auto,q_auto,w_200,h_200,c_fill,g_face/v1777044403/Board/Chinua_yttv80.jpg" alt="Chinualum N. Mmuozoba" width="92" height="92" loading="lazy">
+                    <img src="https://res.cloudinary.com/doq4g8g2x/image/upload/f_auto,q_auto,w_200,h_200,c_fill,g_face/v1777043882/Board/projectmanger_1_cld3va.jpg" alt="Timizimor Victory" width="92" height="92" loading="lazy">
+                </div>
+
+                <div class="hm-team__text hm-rv" style="--i:1">
+                    <h2>The people behind the work</h2>
+                    <p>Lawyers, scientists and media professionals working together for communities across the Niger Delta.</p>
+                </div>
+
+                <a href="board.html" class="hm-btn hm-btn--dark hm-rv" style="--i:2">Meet our team <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <!-- ===================== CALL TO ACTION ===================== -->
+        <section class="hm-cta">
+            <div class="container">
+                <div class="hm-cta__box hm-rv">
+                    <div>
+                        <h2>Is your community facing a rights or environmental problem?</h2>
+                        <p>Tell us what is happening. Our team will look at how we can help.</p>
+                    </div>
+                    <a href="contact.html" class="hm-btn hm-btn--solid">Contact us <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer class="main-footer">
-    <div class="container footer-content">
-        <div class="footer-brand">
-            <h3>PILEX CENTRE FOR CIVIC EDUCATION INITIATIVE</h3>
-            <p>Empowering communities in Rivers State through advocacy and education.</p>
-        </div>
-        <div class="footer-links">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>PILEX CENTRE FOR CIVIC EDUCATION INITIATIVE</h3>
+                <p>Empowering communities in Rivers State through advocacy and education.</p>
+            </div>
+            <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="about.html">Mission & Vision</a></li>
@@ -103,52 +199,92 @@
                 </ul>
             </div>
 
-        <div class="footer-socials">
-            <h4>Follow Our Impact</h4>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/share/18tHVUzUPd/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/pilexcentre?igsh=MWxkZ2VlbGd5YjZtMw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/company/pilex-centre-for-civic-education-initiative/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://x.com/PilexCentre?t=1IuUBtQcbzTghRcphj2AMw&s=09" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
-                <a href="mailto:pilexcentre2@gmail.com" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-        </a>
+            <div class="footer-socials">
+                <h4>Follow Our Impact</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/18tHVUzUPd/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/pilexcentre?igsh=MWxkZ2VlbGd5YjZtMw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/pilex-centre-for-civic-education-initiative/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://x.com/PilexCentre?t=1IuUBtQcbzTghRcphj2AMw&s=09" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="mailto:pilexcentre2@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <p class="footer-email">
+                    <a href="mailto:pilexcentre2@gmail.com">info@pilexcentre.org</a>
+                </p>
             </div>
-            <p class="footer-email">
-        <a href="mailto:pilexcentre2@gmail.com">info@pilexcentre.org</a>
-    </p>
 
+            <section class="newsletter-section">
+                <div class="newsletter-container">
+                    <h2>Stay Updated</h2>
+                    <p>Join our community to receive impact reports and stories from the field.</p>
+
+                    <form action="https://formspree.io/f/xvzdelka" method="POST" class="newsletter-form">
+                        <input type="email" name="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </section>
         </div>
-        <section class="newsletter-section">
-    <div class="newsletter-container">
-        <h2>Stay Updated</h2>
-        <p>Join our community to receive impact reports and stories from the field.</p>
-        
-        <form action="https://formspree.io/f/xvzdelka" method="POST" class="newsletter-form">
-            <input type="email" name="email" placeholder="Enter your email address" required>
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-    </div>
-</section>
-    </div>
-    <button id="backToTop" title="Go to top">
-    <i class="fas fa-arrow-up"></i>
-</button>
-    <div class="footer-bottom">
-        <p>&copy; Karuva Tech / PILEX CENTRE FOR CIVIC EDUCATION INITIATIVE. All Rights Reserved.</p>
-    </div>
-</footer>
 
+        <button id="backToTop" title="Go to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
 
-  <script src="js/main.js"></script>
+        <div class="footer-bottom">
+            <p>&copy; Karuva Tech / PILEX CENTRE FOR CIVIC EDUCATION INITIATIVE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+    <!-- Home page: scroll reveal + stat count-up -->
+    <script>
+    (function () {
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var items = document.querySelectorAll('.hm-rv');
+        var counters = document.querySelectorAll('.hm-count');
+
+        function countUp(el) {
+            var to = parseInt(el.getAttribute('data-to'), 10);
+            var suffix = el.getAttribute('data-suffix') || '';
+            if (reduce || isNaN(to)) { el.textContent = to + suffix; return; }
+            var duration = 1600, start = null;
+            function step(ts) {
+                if (!start) start = ts;
+                var p = Math.min((ts - start) / duration, 1);
+                var eased = 1 - Math.pow(1 - p, 3);
+                el.textContent = Math.round(eased * to) + suffix;
+                if (p < 1) requestAnimationFrame(step);
+            }
+            el.textContent = '0' + suffix;
+            requestAnimationFrame(step);
+        }
+
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('in-view');
+                    entry.target.querySelectorAll('.hm-count').forEach(countUp);
+                    io.unobserve(entry.target);
+                });
+            }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+            items.forEach(function (el) { io.observe(el); });
+        } else {
+            items.forEach(function (el) { el.classList.add('in-view'); });
+        }
+    })();
+    </script>
 
 </body>
 </html>

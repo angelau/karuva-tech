@@ -1,0 +1,601 @@
+/* =========================================================
+   HOME PAGE (index.html)
+   Link this AFTER style.css:
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/home.css">
+   All classes start with "hm-" so nothing clashes with style.css.
+   Colours come from your existing variables (--darkblue, --primary, --white)
+   with fallbacks if they are missing.
+   ========================================================= */
+
+.hm {
+    --hm-bg: var(--darkblue, #0b2545);
+    --hm-accent: var(--primary, #f4b400);
+    --hm-white: var(--white, #ffffff);
+    --hm-ink: #14213d;
+    --hm-muted: #4a5a70;
+    --hm-soft: #f4f7fb;
+    --hm-ease: cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+
+/* ---------- Buttons ---------- */
+.hm-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s var(--hm-ease), background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.hm-btn i {
+    font-size: 0.85em;
+    transition: transform 0.3s var(--hm-ease);
+}
+
+.hm-btn:hover i,
+.hm-btn:focus-visible i {
+    transform: translateX(5px);
+}
+
+.hm-btn:focus-visible {
+    outline: 3px solid var(--hm-white);
+    outline-offset: 3px;
+}
+
+.hm-btn--solid {
+    background: var(--hm-accent);
+    color: var(--hm-bg);
+}
+
+.hm-btn--solid:hover {
+    transform: translateY(-3px);
+}
+
+.hm-btn--ghost {
+    border-color: rgba(255, 255, 255, 0.55);
+    color: var(--hm-white);
+    background: transparent;
+}
+
+.hm-btn--ghost:hover {
+    background: var(--hm-white);
+    border-color: var(--hm-white);
+    color: var(--hm-bg);
+}
+
+/* ---------- Hero ---------- */
+.hm-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 88vh;
+    padding: clamp(80px, 12vh, 140px) 0 clamp(150px, 22vh, 220px);
+    overflow: hidden;
+    color: var(--hm-white);
+    background: linear-gradient(135deg, var(--hm-bg) 0%, #13315c 55%, var(--hm-bg) 100%);
+}
+
+/* Photo layer. Add a photo by setting --hero-img on this element in index.html */
+.hm-hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: var(--hero-img, none);
+    background-size: cover;
+    background-position: center;
+    animation: hmDrift 28s ease-in-out infinite alternate;
+}
+
+/* Dark overlay keeps the text readable on any photo, plus a soft glow */
+.hm-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        radial-gradient(circle at 88% 15%, color-mix(in srgb, var(--hm-accent) 28%, transparent), transparent 46%),
+        linear-gradient(105deg, rgba(8, 24, 48, 0.9) 0%, rgba(8, 24, 48, 0.72) 48%, rgba(8, 24, 48, 0.4) 100%);
+}
+
+.hm-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hm-hero__inner {
+    max-width: 840px;
+}
+
+.hm-hero h1 {
+    margin: 0 0 26px;
+    font-size: clamp(2.4rem, 6.2vw, 4.7rem);
+    font-weight: 800;
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+    color: var(--hm-white);
+}
+
+/* Each word slides up out of a mask: the one big moment on page load */
+.hm-hero h1 .w {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    padding-bottom: 0.12em;
+}
+
+.hm-hero h1 .w > span {
+    display: inline-block;
+    transform: translateY(115%);
+    animation: hmWord 0.95s var(--hm-ease) forwards;
+    animation-delay: calc(0.2s + var(--i, 0) * 0.075s);
+}
+
+.hm-hero__lede {
+    max-width: 620px;
+    margin: 0 0 36px;
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.88);
+    opacity: 0;
+    animation: hmFade 0.9s var(--hm-ease) 1s forwards;
+}
+
+.hm-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    opacity: 0;
+    animation: hmFade 0.9s var(--hm-ease) 1.2s forwards;
+}
+
+/* ---------- Stats (float over the hero's bottom edge) ---------- */
+.hm-stats {
+    position: relative;
+    z-index: 3;
+    margin-top: -92px;
+}
+
+.hm-stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--hm-white);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(11, 37, 69, 0.22);
+    overflow: hidden;
+}
+
+.hm-stat {
+    padding: 34px 20px;
+    text-align: center;
+    border-left: 1px solid #e3e9f2;
+}
+
+.hm-stat:first-child {
+    border-left: 0;
+}
+
+.hm-stat strong {
+    display: block;
+    font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--hm-bg);
+}
+
+.hm-stat span {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--hm-muted);
+}
+
+/* ---------- Intro ---------- */
+.hm-intro {
+    padding: 100px 0 90px;
+}
+
+.hm-intro__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(32px, 6vw, 90px);
+    align-items: start;
+}
+
+.hm-intro h2 {
+    position: relative;
+    margin: 0;
+    padding-top: 26px;
+    font-size: clamp(1.8rem, 3.4vw, 2.7rem);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--hm-ink);
+}
+
+.hm-intro h2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--hm-accent);
+}
+
+.hm-intro p {
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.85;
+    color: var(--hm-muted);
+}
+
+/* ---------- Focus areas ---------- */
+.hm-focus {
+    padding: 90px 0 100px;
+    background: var(--hm-soft);
+}
+
+.hm-head {
+    max-width: 640px;
+    margin: 0 auto 52px;
+    text-align: center;
+}
+
+.hm-head h2 {
+    margin: 0 0 14px;
+    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+    line-height: 1.2;
+    color: var(--hm-ink);
+}
+
+.hm-head p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--hm-muted);
+}
+
+.hm-focus__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.hm-card {
+    position: relative;
+    padding: 40px 32px 38px;
+    background: var(--hm-white);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(11, 37, 69, 0.08);
+    transition: transform 0.45s var(--hm-ease), box-shadow 0.45s var(--hm-ease);
+}
+
+/* Accent line grows along the top on hover */
+.hm-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--hm-accent);
+    transform: scaleX(0.18);
+    transform-origin: left;
+    transition: transform 0.6s var(--hm-ease);
+}
+
+.hm-card__icon {
+    display: grid;
+    place-items: center;
+    width: 62px;
+    height: 62px;
+    margin-bottom: 24px;
+    border-radius: 16px;
+    font-size: 1.5rem;
+    color: var(--hm-accent);
+    background: var(--hm-bg);
+    transition: background-color 0.4s, color 0.4s, transform 0.5s var(--hm-ease);
+}
+
+.hm-card h3 {
+    margin: 0 0 12px;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    color: var(--hm-ink);
+}
+
+.hm-card p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--hm-muted);
+}
+
+@media (hover: hover) {
+    .hm-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 22px 50px rgba(11, 37, 69, 0.18);
+    }
+
+    .hm-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .hm-card:hover .hm-card__icon {
+        background: var(--hm-accent);
+        color: var(--hm-bg);
+        transform: rotate(-6deg) scale(1.06);
+    }
+}
+
+/* ---------- Partners band ---------- */
+.hm-partners {
+    padding: 90px 0;
+    text-align: center;
+    color: var(--hm-white);
+    background: var(--hm-bg);
+}
+
+.hm-partners p {
+    max-width: 880px;
+    margin: 0 auto;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+.hm-partners p::before {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 0 auto 32px;
+    border-radius: 4px;
+    background: var(--hm-accent);
+}
+
+/* ---------- Team teaser ---------- */
+.hm-team {
+    padding: 90px 0;
+}
+
+.hm-team__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px 48px;
+}
+
+.hm-faces {
+    display: flex;
+}
+
+.hm-faces img {
+    width: 92px;
+    height: 92px;
+    margin-left: -22px;
+    border: 4px solid var(--hm-white);
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    background: #16355f;
+    box-shadow: 0 6px 18px rgba(11, 37, 69, 0.2);
+    transition: transform 0.4s var(--hm-ease);
+}
+
+.hm-faces img:first-child {
+    margin-left: 0;
+}
+
+@media (hover: hover) {
+    .hm-faces img:hover {
+        transform: translateY(-8px);
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.hm-team__text {
+    flex: 1 1 360px;
+    max-width: 560px;
+}
+
+.hm-team__text h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    line-height: 1.25;
+    color: var(--hm-ink);
+}
+
+.hm-team__text p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--hm-muted);
+}
+
+.hm-btn--dark {
+    background: var(--hm-bg);
+    color: var(--hm-white);
+}
+
+.hm-btn--dark:hover {
+    transform: translateY(-3px);
+}
+
+/* ---------- Call to action ---------- */
+.hm-cta {
+    padding: 0 0 100px;
+}
+
+.hm-cta__box {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px 40px;
+    padding: clamp(36px, 6vw, 64px);
+    border-radius: 24px;
+    overflow: hidden;
+    color: var(--hm-white);
+    background: linear-gradient(120deg, var(--hm-bg), #13315c);
+}
+
+.hm-cta__box::after {
+    content: "";
+    position: absolute;
+    right: -80px;
+    top: -80px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--hm-accent) 30%, transparent);
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+.hm-cta__box > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hm-cta h2 {
+    margin: 0 0 10px;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    line-height: 1.25;
+    color: var(--hm-white);
+}
+
+.hm-cta p {
+    max-width: 560px;
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------- Scroll reveal ---------- */
+.js .hm-rv:not(.in-view) {
+    opacity: 0;
+}
+
+.js .hm-rv.in-view {
+    animation: hmRise 0.85s var(--hm-ease) backwards;
+    animation-delay: calc(var(--i, 0) * 120ms);
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes hmWord {
+    to { transform: translateY(0); }
+}
+
+@keyframes hmFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes hmRise {
+    from { opacity: 0; transform: translateY(36px); }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes hmDrift {
+    from { transform: scale(1); }
+    to { transform: scale(1.08) translate(-1%, 1%); }
+}
+
+/* ---------- Tablets and phones ---------- */
+@media (max-width: 960px) {
+    .hm-focus__grid {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+        margin: 0 auto;
+    }
+
+    .hm-intro__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .hm-stats {
+        margin-top: -64px;
+    }
+
+    .hm-stats__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hm-stat {
+        padding: 26px 14px;
+    }
+
+    .hm-stat:nth-child(3) {
+        border-left: 0;
+    }
+
+    .hm-stat:nth-child(n + 3) {
+        border-top: 1px solid #e3e9f2;
+    }
+
+    .hm-intro,
+    .hm-focus,
+    .hm-partners,
+    .hm-team {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    .hm-cta {
+        padding-bottom: 64px;
+    }
+
+    .hm-faces img {
+        width: 64px;
+        height: 64px;
+        margin-left: -16px;
+    }
+}
+
+/* ---------- Respect "reduce motion" settings ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .hm-hero__bg {
+        animation: none;
+    }
+
+    .hm-hero h1 .w > span {
+        transform: none;
+        animation: none;
+    }
+
+    .hm-hero__lede,
+    .hm-hero__actions {
+        opacity: 1;
+        animation: none;
+    }
+
+    .js .hm-rv.in-view {
+        animation: none;
+    }
+
+    .hm-card,
+    .hm-card::before,
+    .hm-card__icon,
+    .hm-faces img,
+    .hm-btn,
+    .hm-btn i {
+        transition: none;
+    }
+}
