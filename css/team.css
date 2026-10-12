@@ -1,0 +1,256 @@
+.team-section,
+.staff-section {
+    --tm-bg: var(--darkblue, #0b2545);
+    --tm-accent: var(--primary, #f4b400);
+    --tm-text: var(--white, #ffffff);
+    --tm-ease: cubic-bezier(0.22, 0.8, 0.3, 1);
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+/* ---------- Section titles ---------- */
+.team-section .section-title,
+.staff-section .section-title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 56px;
+    padding-bottom: 18px;
+}
+
+.team-section .section-title::after,
+.staff-section .section-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 64px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--tm-accent);
+    transform: translateX(-50%);
+}
+
+/* ---------- Grid (flex so the last row stays centred) ---------- */
+.tm-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 36px;
+}
+
+/* ---------- Card ---------- */
+.tm-card {
+    flex: 0 1 300px;
+    display: flex;
+    flex-direction: column;
+    background: var(--tm-bg);
+    color: var(--tm-text);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(11, 37, 69, 0.18);
+    transition: transform 0.45s var(--tm-ease), box-shadow 0.45s var(--tm-ease);
+}
+
+.tm-card--lead {
+    flex-basis: 380px;
+}
+
+/* ---------- Photo ---------- */
+.tm-photo {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #16355f;
+}
+
+.tm-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%; /* keeps faces in frame */
+    transition: transform 0.9s var(--tm-ease);
+}
+
+/* Photo fades into the card colour so the name sits on it cleanly */
+.tm-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--tm-bg) 0%, rgba(0, 0, 0, 0) 48%);
+    pointer-events: none;
+}
+
+/* Light sweep across the photo on hover */
+.tm-photo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-18deg);
+    pointer-events: none;
+}
+
+/* ---------- Text ---------- */
+.tm-body {
+    position: relative;
+    z-index: 1;
+    margin-top: -64px; /* pulls the name up over the faded photo */
+    padding: 0 26px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.tm-body::before {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 4px;
+    margin-bottom: 14px;
+    border-radius: 4px;
+    background: var(--tm-accent);
+    transition: width 0.6s var(--tm-ease);
+}
+
+.tm-name {
+    margin: 0 0 6px;
+    font-size: 1.3rem;
+    line-height: 1.25;
+    color: var(--tm-text);
+}
+
+.tm-role {
+    margin: 0 0 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--tm-accent);
+}
+
+.tm-bio {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    display: -webkit-box;
+    line-clamp: 4;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tm-card.is-open .tm-bio {
+    display: block;
+    line-clamp: unset;
+    -webkit-line-clamp: unset;
+}
+
+/* "Read more" only appears when the bio is actually cut off */
+.tm-more {
+    display: none;
+    align-self: flex-start;
+    margin-top: 10px;
+    padding: 4px 0;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--tm-accent);
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+.tm-card.has-more .tm-more {
+    display: inline-block;
+}
+
+.tm-more:hover,
+.tm-more:focus-visible {
+    border-bottom-color: var(--tm-accent);
+}
+
+.tm-more:focus-visible {
+    outline: 2px solid var(--tm-accent);
+    outline-offset: 3px;
+}
+
+/* ---------- Hover (mouse devices only) ---------- */
+@media (hover: hover) {
+    .tm-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 22px 50px rgba(11, 37, 69, 0.3);
+    }
+
+    .tm-card:hover .tm-photo img {
+        transform: scale(1.07);
+    }
+
+    .tm-card:hover .tm-photo::before {
+        left: 140%;
+        transition: left 0.9s var(--tm-ease);
+    }
+
+    .tm-card:hover .tm-body::before {
+        width: 100%;
+    }
+}
+
+/* ---------- Scroll reveal ---------- */
+/* Cards stay visible if JavaScript is off; the .js class is added by the page */
+.js .tm-card:not(.in-view) {
+    opacity: 0;
+}
+
+.js .tm-card.in-view {
+    opacity: 1;
+    animation: tmRise 0.9s var(--tm-ease) backwards;
+    animation-delay: calc(var(--i, 0) * 120ms);
+}
+
+@keyframes tmRise {
+    from {
+        opacity: 0;
+        transform: translateY(46px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 680px) {
+    .tm-grid {
+        gap: 28px;
+    }
+
+    .tm-card,
+    .tm-card--lead {
+        flex-basis: 100%;
+        max-width: 420px;
+    }
+}
+
+/* ---------- Respect "reduce motion" settings ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .tm-card,
+    .tm-photo img,
+    .tm-body::before {
+        transition: none;
+    }
+
+    .js .tm-card.in-view {
+        animation: none;
+    }
+
+    .tm-photo::before {
+        display: none;
+    }
+}

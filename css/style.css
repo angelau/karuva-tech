@@ -178,8 +178,8 @@ body {
 @media screen and (max-width: 768px) {
     /* 1. Make the parent container flexible */
     .home-intro {
-        height: auto;           /* Removes any fixed height like 100vh */
-        min-height: 100vh;      /* Ensures it still fills the screen if content is short */
+        height: auto;           
+        min-height: 100vh;      
         padding: 120px 20px 60px; /* Adds space at the top for navbar and bottom for breathing room */
         display: flex;
         flex-direction: column;
@@ -190,14 +190,14 @@ body {
     /* 2. Fix the content width */
     .hero-content {
         width: 100%;
-        text-align: center;     /* Centers the text for a better mobile look */
+        text-align: center;     
         padding: 0;
         margin: 0;
     }
 
     /* 3. Scale down the heading so it doesn't push everything down */
     .hero-content h1 {
-        font-size: 2rem;        /* Smaller font for mobile */
+        font-size: 2rem;       
         line-height: 1.2;
         margin-bottom: 20px;
     }
@@ -205,7 +205,7 @@ body {
     /* 4. Fix the buttons */
     .hero-btns {
         display: flex;
-        flex-direction: column; /* Stacks 'Our Mission' and 'See Our Work' */
+        flex-direction: column; 
         gap: 15px;
         width: 100%;
         align-items: center;
@@ -213,8 +213,8 @@ body {
     }
 
     .hero-btns .btn {
-        width: 100%;            /* Buttons become full-width for easy tapping */
-        max-width: 280px;       /* Keeps buttons from looking too wide */
+        width: 100%;            
+        max-width: 280px;      
         padding: 5px;
     }
 }
@@ -282,7 +282,7 @@ body {
 .directors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 450px)); /* Limits size */
-    justify-content: center; /* Centers the two cards */
+    justify-content: center; 
     gap: 40px;
 }
 .card-info .bio{
@@ -416,7 +416,7 @@ body {
 
 @media screen and (max-width: 768px) {
     .nav-links {
-        display: none; /* We'll handle the toggle with JS later */
+        display: none; 
     }
     .burger {
         display: block;
@@ -436,7 +436,7 @@ body {
 .gallery-grid {
     display: flex;
     flex-direction: column;
-    gap: 60px; /* Space between the project cards */
+    gap: 60px; 
 }
 
 .gallery-card {
@@ -446,13 +446,12 @@ body {
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.06);
     border: 1px solid #eee;
-    /* This ensures the card doesn't get infinitely tall */
     max-height: 500px; 
 }
 
 /* Image Side */
 .gallery-img {
-    flex: 1.2; /* Takes up a bit more than half the card */
+    flex: 1.2; 
     overflow: hidden;
 }
 
@@ -499,7 +498,6 @@ body {
     font-size: 1rem;
     color: #555;
     line-height: 1.7;
-    /* Limits text so it doesn't push the card too long */
     display: -webkit-box;
     -webkit-line-clamp: 5;
     line-clamp: 5;
