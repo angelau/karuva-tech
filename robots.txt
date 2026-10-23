@@ -1,6 +1,7 @@
+# Pilex Centre For Civic Education Initiative
+# Upload this file to the root of the site so it opens at https://pilexcentre.org/robots.txt
+
 User-agent: *
 Allow: /
 
-# Specifically allow Facebook's scraper
-User-agent: facebookexternalhit
-Allow: /
+Sitemap: https://pilexcentre.org/sitemap.xml

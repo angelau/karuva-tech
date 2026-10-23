@@ -1,0 +1,294 @@
+.ps {
+    --ps-bg: var(--darkblue, #0b2545);
+    --ps-accent: var(--primary, #f4b400);
+    --ps-white: var(--white, #ffffff);
+    --ps-ink: #14213d;
+    --ps-muted: #3f4f66;
+    --ps-ease: cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+
+/* ---------- Reading progress bar ---------- */
+.ps-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 100%;
+    height: 4px;
+    background: var(--primary, #f4b400);
+    transform: scaleX(0);
+    transform-origin: left;
+    pointer-events: none;
+}
+
+/* ---------- Hero ---------- */
+.ps-hero {
+    position: relative;
+    padding: clamp(56px, 9vh, 100px) 0 clamp(120px, 18vh, 190px);
+    overflow: hidden;
+    color: var(--ps-white);
+    background: linear-gradient(135deg, var(--ps-bg) 0%, #13315c 55%, var(--ps-bg) 100%);
+}
+
+.ps-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 88% 20%, color-mix(in srgb, var(--ps-accent) 26%, transparent), transparent 46%);
+    pointer-events: none;
+}
+
+.ps-hero .container { position: relative; }
+
+.ps-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 28px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.25s;
+}
+
+.ps-back i { transition: transform 0.3s var(--ps-ease); }
+.ps-back:hover { color: var(--ps-white); }
+.ps-back:hover i { transform: translateX(-5px); }
+.ps-back:focus-visible { outline: 3px solid var(--ps-accent); outline-offset: 4px; border-radius: 4px; }
+
+.ps-hero h1 {
+    max-width: 880px;
+    margin: 0 0 22px;
+    font-size: clamp(2rem, 4.8vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--ps-white);
+}
+
+.ps-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+/* ---------- Cover image (floats over the hero edge) ---------- */
+.ps-cover {
+    position: relative;
+    z-index: 2;
+    max-width: 1040px;
+    margin: -96px auto 0;
+    padding: 0 20px;
+}
+
+.ps-cover__frame {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 22px;
+    background: #16355f;
+    box-shadow: 0 28px 70px rgba(11, 37, 69, 0.28);
+}
+
+.ps-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+/* ---------- Article body ---------- */
+.ps-body {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 56px 20px 40px;
+}
+
+.ps-body p {
+    margin: 0 0 24px;
+    font-size: 1.14rem;
+    line-height: 1.9;
+    color: var(--ps-muted);
+}
+
+/* Opening paragraph reads as a lead-in */
+.ps-body > p:first-child {
+    font-size: 1.3rem;
+    line-height: 1.75;
+    font-weight: 600;
+    color: var(--ps-ink);
+}
+
+.ps-body h2 {
+    position: relative;
+    margin: 52px 0 20px;
+    padding-top: 22px;
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    line-height: 1.25;
+    color: var(--ps-ink);
+}
+
+.ps-body h2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 56px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--ps-accent);
+}
+
+.ps-body blockquote {
+    margin: 36px 0;
+    padding: 6px 0 6px 28px;
+    border-left: 5px solid var(--ps-accent);
+}
+
+.ps-body blockquote p {
+    margin: 0;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--ps-ink);
+}
+
+.ps-body a {
+    font-weight: 600;
+    color: var(--ps-bg);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ---------- End of post ---------- */
+.ps-end {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 20px 70px;
+}
+
+.ps-end__line {
+    height: 1px;
+    margin-bottom: 32px;
+    background: #dbe3ee;
+}
+
+.ps-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--ps-bg);
+    background: var(--ps-accent);
+    transition: transform 0.3s var(--ps-ease);
+}
+
+.ps-btn:hover { transform: translateY(-3px); }
+.ps-btn i { font-size: 0.85em; transition: transform 0.3s var(--ps-ease); }
+.ps-btn:hover i { transform: translateX(-5px); }
+.ps-btn:focus-visible { outline: 3px solid var(--ps-bg); outline-offset: 3px; }
+
+/* ---------- More from the blog ---------- */
+.ps-more {
+    padding: 80px 0 90px;
+    background: #f4f7fb;
+}
+
+.ps-more h2 {
+    margin: 0 0 32px;
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    color: var(--ps-ink);
+}
+
+.ps-more__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.ps-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 18px;
+    background: var(--ps-white);
+    box-shadow: 0 10px 30px rgba(11, 37, 69, 0.1);
+    transition: transform 0.45s var(--ps-ease), box-shadow 0.45s var(--ps-ease);
+}
+
+.ps-card__img {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #16355f;
+}
+
+.ps-card__img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.9s var(--ps-ease);
+}
+
+.ps-card__body { padding: 22px 26px 26px; }
+
+.ps-card__body time {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ps-muted);
+}
+
+.ps-card__body h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.4;
+}
+
+.ps-card__body h3 a {
+    color: var(--ps-ink);
+    text-decoration: none;
+}
+
+/* Whole card is clickable */
+.ps-card__body h3 a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.ps-card:has(a:focus-visible) { outline: 3px solid var(--ps-accent); outline-offset: 3px; }
+
+@media (hover: hover) {
+    .ps-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 50px rgba(11, 37, 69, 0.2);
+    }
+    .ps-card:hover .ps-card__img img { transform: scale(1.06); }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 720px) {
+    .ps-cover { margin-top: -64px; padding: 0 14px; }
+    .ps-cover__frame { border-radius: 16px; }
+    .ps-body { padding-top: 40px; }
+    .ps-body p { font-size: 1.06rem; }
+    .ps-body > p:first-child { font-size: 1.18rem; }
+    .ps-body blockquote p { font-size: 1.16rem; }
+    .ps-more { padding: 56px 0 64px; }
+    .ps-more__grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ps-back i, .ps-btn, .ps-btn i, .ps-card, .ps-card__img img { transition: none; }
+}

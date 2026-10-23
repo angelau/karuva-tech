@@ -1,0 +1,256 @@
+
+.gl {
+    --gl-bg: var(--darkblue, #0b2545);
+    --gl-accent: var(--primary, #f4b400);
+    --gl-white: var(--white, #ffffff);
+    --gl-ink: #14213d;
+    --gl-muted: #4a5a70;
+    --gl-ease: cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+
+/* ---------- Hero ---------- */
+.gl-hero {
+    position: relative;
+    padding: clamp(70px, 11vh, 120px) 0 clamp(60px, 9vh, 100px);
+    overflow: hidden;
+    color: var(--gl-white);
+    background: linear-gradient(135deg, var(--gl-bg) 0%, #13315c 55%, var(--gl-bg) 100%);
+}
+
+.gl-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 88% 20%, color-mix(in srgb, var(--gl-accent) 26%, transparent), transparent 46%);
+    pointer-events: none;
+}
+
+.gl-hero .container { position: relative; }
+
+.gl-hero h1 {
+    margin: 0 0 16px;
+    font-size: clamp(2.2rem, 5.4vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--gl-white);
+}
+
+.gl-hero p {
+    max-width: 620px;
+    margin: 0;
+    font-size: clamp(1.02rem, 1.5vw, 1.2rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.86);
+}
+
+/* ---------- Grid ---------- */
+.gl-main { padding: 64px 0 100px; }
+
+.gl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+.gl-card {
+    margin: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--gl-white);
+    box-shadow: 0 10px 30px rgba(11, 37, 69, 0.1);
+    transition: transform 0.45s var(--gl-ease), box-shadow 0.45s var(--gl-ease);
+}
+
+.gl-open {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    background: #16355f;
+    cursor: zoom-in;
+}
+
+.gl-open img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    transition: transform 0.9s var(--gl-ease);
+}
+
+/* Small "expand" badge */
+.gl-open::after {
+    content: "\f065";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 0.95rem;
+    color: var(--gl-bg);
+    background: var(--gl-accent);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s, transform 0.35s var(--gl-ease);
+}
+
+.gl-open:focus-visible {
+    outline: 4px solid var(--gl-accent);
+    outline-offset: -4px;
+}
+
+.gl-open:focus-visible::after,
+.gl-open:hover::after {
+    opacity: 1;
+    transform: none;
+}
+
+.gl-caption { padding: 22px 24px 26px; }
+
+.gl-caption h2 {
+    margin: 0 0 10px;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    color: var(--gl-ink);
+}
+
+.gl-caption p {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--gl-muted);
+}
+
+@media (hover: hover) {
+    .gl-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 54px rgba(11, 37, 69, 0.2);
+    }
+    .gl-card:hover .gl-open img { transform: scale(1.06); }
+}
+
+/* ---------- Photo viewer ---------- */
+.gl-viewer {
+    width: min(1100px, 94vw);
+    max-width: none;
+    max-height: 94vh;
+    padding: 0;
+    border: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    color: var(--gl-white);
+    background: var(--gl-bg);
+}
+
+.gl-viewer::backdrop { background: rgba(5, 15, 32, 0.88); }
+
+.gl-viewer[open] { animation: glPop 0.4s var(--gl-ease); }
+
+.gl-viewer__img {
+    display: block;
+    width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    background: #06142a;
+}
+
+.gl-viewer__text { padding: 20px 28px 26px; }
+
+.gl-viewer__text h2 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+    color: var(--gl-white);
+}
+
+.gl-viewer__text p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.gl-viewer__btn {
+    position: absolute;
+    top: 50%;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    font-size: 1.05rem;
+    color: var(--gl-bg);
+    background: var(--gl-accent);
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: transform 0.3s var(--gl-ease);
+}
+
+.gl-viewer__btn:hover { transform: translateY(-50%) scale(1.1); }
+.gl-viewer__btn:focus-visible { outline: 3px solid var(--gl-white); outline-offset: 3px; }
+
+.gl-viewer__prev { left: 14px; }
+.gl-viewer__next { right: 14px; }
+
+.gl-viewer__close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    color: var(--gl-bg);
+    background: var(--gl-white);
+    cursor: pointer;
+}
+
+.gl-viewer__close:focus-visible { outline: 3px solid var(--gl-accent); outline-offset: 3px; }
+
+@keyframes glPop {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: none; }
+}
+
+/* ---------- Scroll reveal ---------- */
+.js .gl-rv:not(.in-view) { opacity: 0; }
+
+.js .gl-rv.in-view {
+    animation: glRise 0.85s var(--gl-ease) backwards;
+    animation-delay: calc(var(--i, 0) * 110ms);
+}
+
+@keyframes glRise {
+    from { opacity: 0; transform: translateY(34px); }
+    to { opacity: 1; transform: none; }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 680px) {
+    .gl-main { padding: 44px 0 64px; }
+    .gl-grid { grid-template-columns: 1fr; }
+    .gl-viewer__btn { width: 42px; height: 42px; }
+    .gl-viewer__text { padding: 16px 20px 22px; }
+    .gl-open::after { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js .gl-rv.in-view, .gl-viewer[open] { animation: none; }
+    .gl-card, .gl-open img, .gl-open::after, .gl-viewer__btn { transition: none; }
+}

@@ -18,6 +18,63 @@
 
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
+    <link rel="canonical" href="https://pilexcentre.org/">
+
+    <!-- Structured data: this is telling Google and AI search tools who Pilex Centre is -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://pilexcentre.org/#website",
+          "url": "https://pilexcentre.org/",
+          "name": "Pilex Centre",
+          "alternateName": ["Pilex Centre For Civic Education Initiative", "Pilex Centre Nigeria"],
+          "publisher": { "@id": "https://pilexcentre.org/#organization" }
+        },
+        {
+          "@type": "NGO",
+          "@id": "https://pilexcentre.org/#organization",
+          "name": "Pilex Centre For Civic Education Initiative",
+          "alternateName": "Pilex Centre",
+          "url": "https://pilexcentre.org/",
+          "logo": "https://res.cloudinary.com/doq4g8g2x/image/upload/f_auto,q_auto/v1777044541/Gallery/ngo-name-logo.png.jpg",
+          "image": "https://res.cloudinary.com/doq4g8g2x/image/upload/f_auto,q_auto,w_1200/v1777044515/Gallery/pilex-centre.jpg",
+          "description": "Pilex Centre For Civic Education Initiative is a public interest law centre focused on democracy and good governance, and the defence of human and environmental rights through strategic litigation and advocacy in Rivers State and the Niger Delta, Nigeria.",
+          "email": "pilexcentre2@gmail.com",
+          "telephone": "+234-707-432-4881",
+          "foundingDate": "2023-07",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Port Harcourt",
+            "addressRegion": "Rivers State",
+            "addressCountry": "NG"
+          },
+          "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Rivers State" },
+            { "@type": "AdministrativeArea", "name": "Niger Delta" },
+            { "@type": "Country", "name": "Nigeria" }
+          ],
+          "knowsAbout": [
+            "Human rights",
+            "Environmental justice",
+            "Strategic litigation",
+            "Democracy and good governance",
+            "Civic education",
+            "Climate change"
+          ],
+          "sameAs": [
+            "https://www.facebook.com/share/18tHVUzUPd/",
+            "https://www.instagram.com/pilexcentre",
+            "https://www.linkedin.com/company/pilex-centre-for-civic-education-initiative/",
+            "https://x.com/PilexCentre"
+          ]
+        }
+      ]
+    }
+    </script>
+
     <script>document.documentElement.classList.add('js');</script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
@@ -38,6 +95,7 @@
             <li><a href="about.html">About Us</a></li>
             <li><a href="board.html">Our Team</a></li>
             <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="videos.html">Videos</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -53,18 +111,21 @@
 
         <!-- ===================== HERO ===================== -->
         <header class="hm-hero">
-            <!-- To use a photo, replace the line below with:
-                 <div class="hm-hero__bg" style="--hero-img: url('YOUR_CLOUDINARY_LINK');" role="presentation"></div>
-                 Tip: use a link like .../image/upload/f_auto,q_auto,w_1920/... -->
+            
             <div class="hm-hero__bg" style="--hero-img: url('https://res.cloudinary.com/doq4g8g2x/image/upload/f_auto,q_auto,w_1920/v1777044515/Gallery/pilex-centre.jpg');" role="presentation"></div>
 
             <div class="container">
                 <div class="hm-hero__inner">
                     <h1 aria-label="The people's advocates for justice in the Niger Delta.">
-                        <span class="w" aria-hidden="true"><span style="--i:0">THE</span></span>
-                        <span class="w" aria-hidden="true"><span style="--i:1">PEOPLE'S</span></span>
-                        <span class="w" aria-hidden="true"><span style="--i:2">ADVOCATE</span></span>
-                        
+                        <span class="w" aria-hidden="true"><span style="--i:0">The</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:1">people's</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:2">advocates</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:3">for</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:4">justice</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:5">in</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:6">the</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:7">Niger</span></span>
+                        <span class="w" aria-hidden="true"><span style="--i:8">Delta.</span></span>
                     </h1>
                     <p class="hm-hero__lede">We are a public interest law centre defending human rights and the environment through strategic litigation, advocacy and civic education.</p>
                     <div class="hm-hero__actions">
